@@ -1,0 +1,208 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Jazzup Artist Portfolio Design System - Scribblism Aesthetic */
+
+@layer base {
+  :root {
+    /* Core Brand Colors */
+    --primary: 351 85% 50%;        /* Vivid Red #E21B3C */
+    --primary-foreground: 0 0% 98%;
+    
+    --secondary: 48 100% 50%;      /* Vibrant Yellow #FFD400 */
+    --secondary-foreground: 0 0% 5%;
+    
+    --accent: 213 100% 56%;        /* Electric Blue #1E88FF */
+    --accent-foreground: 0 0% 98%;
+    
+    --neon: 166 100% 50%;          /* Mint Neon #00FFC6 */
+    --neon-foreground: 0 0% 5%;
+    
+    /* Neutrals */
+    --background: 42 14% 96%;      /* Off-white #F7F6F3 */
+    --foreground: 0 0% 5%;         /* Near Black #0D0D0D */
+    
+    --dark: 0 0% 5%;               /* Near Black #0D0D0D */
+    --light: 42 14% 96%;           /* Off-white #F7F6F3 */
+    
+    /* UI Components */
+    --card: 42 14% 96%;
+    --card-foreground: 0 0% 5%;
+    
+    --popover: 42 14% 98%;
+    --popover-foreground: 0 0% 5%;
+    
+    --muted: 42 8% 92%;
+    --muted-foreground: 0 0% 40%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 42 8% 88%;
+    --input: 42 8% 88%;
+    --ring: 351 85% 50%;
+    
+    --radius: 0.75rem;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 50%, hsl(var(--neon)) 100%);
+    --gradient-gallery: linear-gradient(45deg, hsl(var(--secondary) / 0.1) 0%, hsl(var(--primary) / 0.1) 100%);
+    --gradient-overlay: linear-gradient(180deg, transparent 0%, hsl(var(--dark) / 0.4) 100%);
+    
+    /* Shadows */
+    --shadow-artwork: 0 20px 40px -10px hsl(var(--primary) / 0.2), 0 10px 20px -5px hsl(var(--dark) / 0.1);
+    --shadow-gallery: 0 10px 30px -5px hsl(var(--dark) / 0.15);
+    --shadow-neon: 0 0 30px hsl(var(--neon) / 0.5);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    /* Texture Overlays */
+    --scribble-overlay: rgba(13, 13, 13, 0.04);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-mono;
+    line-height: 1.45;
+  }
+  
+  /* Custom Font Classes */
+  .font-display {
+    font-family: 'Permanent Marker', 'Brush Script MT', cursive;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+  }
+  
+  .font-body {
+    font-family: 'Inter', 'Poppins', system-ui, sans-serif;
+    font-weight: 400;
+  }
+}
+
+@layer components {
+  /* Animation Keyframes */
+  @keyframes scribble-float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    25% { transform: translateY(-10px) rotate(1deg); }
+    50% { transform: translateY(-5px) rotate(-1deg); }
+    75% { transform: translateY(-15px) rotate(0.5deg); }
+  }
+  
+  @keyframes paint-drip {
+    0% { transform: translateY(-100%) scaleY(0); }
+    50% { transform: translateY(0%) scaleY(1.2); }
+    100% { transform: translateY(0%) scaleY(1); }
+  }
+  
+  @keyframes neon-pulse {
+    0%, 100% { box-shadow: var(--shadow-neon); }
+    50% { box-shadow: 0 0 50px hsl(var(--neon) / 0.8); }
+  }
+  
+  /* Component Variants */
+  .hero-button {
+    @apply bg-primary text-primary-foreground px-8 py-4 rounded-2xl font-display text-lg;
+    @apply hover:scale-105 transition-all duration-300;
+    @apply shadow-lg hover:shadow-xl;
+    background: var(--gradient-hero);
+  }
+  
+  .gallery-card {
+    @apply bg-card rounded-xl overflow-hidden;
+    @apply hover:scale-[1.02] transition-all duration-300;
+    box-shadow: var(--shadow-gallery);
+  }
+  
+  .artwork-frame {
+    @apply relative overflow-hidden rounded-lg;
+    box-shadow: var(--shadow-artwork);
+  }
+  
+  .scribble-overlay {
+    @apply absolute inset-0 pointer-events-none;
+    background: var(--scribble-overlay);
+    animation: scribble-float 8s ease-in-out infinite;
+  }
+  
+  .neon-accent {
+    @apply text-neon;
+    animation: neon-pulse 3s ease-in-out infinite;
+  }
+  
+  /* Interactive Elements */
+  .hover-lift {
+    @apply transition-all duration-300 hover:scale-105 hover:-translate-y-2;
+  }
+  
+  .paint-splash {
+    @apply relative;
+  }
+  
+  .paint-splash::before {
+    content: '';
+    @apply absolute -top-2 -right-2 w-6 h-6 rounded-full bg-secondary;
+    animation: paint-drip 0.6s ease-out;
+  }
+}
